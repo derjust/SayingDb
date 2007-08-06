@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02.08.2007 19:37:14 by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping package="de.zeeman.sayingDb.data">
+    <class name="Author" table="Authors">
+        <comment></comment>
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="picture" class="Picture" fetch="select">
+            <column name="PictureId">
+                <comment></comment>
+            </column>
+        </many-to-one>
+        <property name="lastname" type="string">
+            <column name="Lastname" length="128" not-null="true">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="firstname" type="string">
+            <column name="Firstname" length="128" not-null="true">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="birthday" type="date">
+            <column name="Birthday" length="10">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="obit" type="date">
+            <column name="Obit" length="10">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="work" type="string">
+            <column name="Work" length="45">
+                <comment></comment>
+            </column>
+        </property>
+        <set name="sayings" inverse="true">
+            <key>
+                <column name="AuthorId" not-null="true">
+                    <comment>Foreign Key</comment>
+                </column>
+            </key>
+            <one-to-many class="Sayings" />
+        </set>
+    </class>
+</hibernate-mapping>

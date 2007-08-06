@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02.08.2007 19:37:14 by Hibernate Tools 3.2.0.b9 -->
+<hibernate-mapping package="de.zeeman.sayingDb.data">
+    <class name="Picture" table="Pictures">
+        <comment></comment>
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="assigned" />
+        </id>
+        <property name="data" type="binary">
+            <column name="Data" not-null="true">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="length" type="int">
+            <column name="Length" not-null="true">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="mime" type="string">
+            <column name="Mime" length="64" not-null="true">
+                <comment></comment>
+            </column>
+        </property>
+        <set name="authors" inverse="true">
+            <key>
+                <column name="PictureId">
+                    <comment></comment>
+                </column>
+            </key>
+            <one-to-many class="Authors" />
+        </set>
+    </class>
+</hibernate-mapping>
