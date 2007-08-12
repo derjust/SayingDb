@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Resource name="jdbc/SayingDb" auth="Container"
+	type="javax.sql.DataSource"
+	factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
+	username="saying" password="xxxxxx"
+	driverClassName="org.postgresql.Driver"
+	url="jdbc:mysql://wodan:3306/SayingDb" maxWait="1000"
+	removeAbandoned="true" maxActive="30" maxIdle="10"
+	removeAbandonedTimeout="60" logAbandoned="true" />
